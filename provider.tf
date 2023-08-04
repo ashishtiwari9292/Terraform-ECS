@@ -4,7 +4,7 @@ terraform {
   backend "s3" {
       bucket     = "terraform-bucket-statefiles"
       key        = "key/terraform.tfstate"
-      s3_versioning = "enable"
+      # s3_versioning = "enable"
       region     = "us-east-1"
   }
 }
