@@ -2,9 +2,9 @@
 # Specify the provider and access details
 terraform {
   backend "s3" {
-    bucket = "terraform-bucket-statefiles"
-    key    = "key/terraform.tfstate"
-    region = var.aws_region
+      bucket     = "terraform-bucket-statefiles"
+      key        = "key/terraform.tfstate"
+      region     = "us-east-1"
   }
 }
 
