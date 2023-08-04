@@ -1,5 +1,5 @@
-# # outputs you can kist required endpoints, ip or instanceid's
+# outputs you can kist required endpoints, ip or instanceid's
 
-# output "alb_hostname" {
-#   value = aws_alb.alb.dns_name
-# }
+output "alb_hostname" {
+  value = aws_alb.alb.dns_name
+}
