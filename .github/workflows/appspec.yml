@@ -30,6 +30,7 @@ jobs:
           terraform init
           terraform plan -no-color
           terraform apply -auto-approve
+          terraform destroy -auto-approve
 
   # deploy:
   #   name: "ECS-Deploy"
