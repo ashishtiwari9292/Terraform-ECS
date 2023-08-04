@@ -1,6 +1,14 @@
 # provider.tf
 # Specify the provider and access details
 terraform {
+  backend "s3" {
+    bucket = "terraform-bucket-statefiles"
+    key    = "key/terraform.tfstate"
+    region = var.aws_region
+  }
+}
+
+terraform {
   required_version = ">=1.0.1"
   required_providers {
       aws = {
