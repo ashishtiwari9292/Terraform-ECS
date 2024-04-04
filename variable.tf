@@ -9,10 +9,63 @@
 #   description = "AWS secret key"
 #   default     = "{{ secrets.AWS_SECRET_ACCESS_KEY }}"
 # }
+variable "input" {}
+
+locals {
+  common_dev = {
+    Name = "dev_deparment"
+  }
+}
+
+locals {
+  common_prod = {
+    Name = "prod_deparment"
+  }
+}
 
 variable "aws_region" {
   description = "The AWS region things are created in"
-  default     = "us-east-1"
+  # default     = "us-east-1"
+}
+
+variable "aws_ami" {
+  description = "The AWS AMI things are created in"
+  # default     = "ami-0261755bbcb8c4a84"
+}
+
+variable "aws_instance_type" {
+  description = "The AWS Instance Type things are created in"
+  # default     = "t2.micro"
+  type = list(any)
+}
+
+variable "aws_instance_name" {
+  description = "The AWS Instance Name things are created in"
+  # default     = "t2.micro"
+  type = list(any)
+}
+
+variable "aws_subnet_id" {
+  description = "The AWS Subnet Id things are created in"
+  # default     = "subnet-0b37419505d92509d"
+}
+
+variable "az" {
+  description = "The AWS AZ things are created in"
+  type        = list(any)
+  # default     = ""
+}
+
+variable "elbname" {
+  description = "The AWS elb things are created in"
+  type        = string
+  # default     = ""
+}
+
+variable "tag" {
+  description = "The AWS tag things are created in"
+  type        = list(any)
+  # default     = ""
 }
 
 # variable "az_count" {
@@ -36,7 +89,7 @@ variable "aws_region" {
 # }
 
 # variable "app_count" {
-#   default     = "2" #choose 2 bcz i have choosen 2 AZ
+#   default     = "1" #choose 2 bcz i have choosen 2 AZ
 #   description = "numer of docker containers to run"
 # }
 

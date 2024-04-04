@@ -2,17 +2,17 @@
 # Specify the provider and access details
 terraform {
   backend "s3" {
-      bucket     = "terraform-bucket-statefiles"
-      key        = "key/terraform.tfstate"
-      # s3_versioning = "enable"
-      region     = "us-east-1"
+    bucket = "terraform-bucket-statefiles"
+    key    = "key/terraform.tfstate"
+    # s3_versioning = "enable"
+    region = "us-east-1"
   }
 }
 
 terraform {
   required_version = ">=1.0.1"
   required_providers {
-      aws = {
+    aws = {
       source  = "hashicorp/aws"
       version = ">=1.0.1"
     }
@@ -20,7 +20,7 @@ terraform {
 }
 
 provider "aws" {
-#   shared_credentials_file = "$HOME/.aws/credentials"
+  #   shared_credentials_file = "$HOME/.aws/credentials"
   # version = "5.10.0"
   # access_key = "{{ secrets.AWS_ACCESS_KEY_ID }}"
   # secret_key = "{{ secrets.AWS_SECRET_ACCESS_KEY }}"
