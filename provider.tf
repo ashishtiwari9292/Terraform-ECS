@@ -1,13 +1,23 @@
-# provider.tf
-# Specify the provider and access details
 terraform {
   backend "s3" {
-    bucket = "terraform-bucket-statefiles"
-    key    = "key/terraform.tfstate"
-    # s3_versioning = "enable"
-    region = "us-east-1"
+    bucket                  = "terraform-bucket-statefiles"
+    key                     = "my-terraform-project"
+    region                  = "us-east-1"
+    shared_credentials_file = "~/.aws/credentials"
   }
 }
+
+provider "aws" {
+  region                  = var.aws_region
+  shared_credentials_file = "~/.aws/credentials"
+   # version = "5.10.0"
+  # access_key = "{{ secrets.AWS_ACCESS_KEY_ID }}"
+  # secret_key = "{{ secrets.AWS_SECRET_ACCESS_KEY }}"
+  # profile = "default"
+  # access_key = ""
+  # secret_key = ""
+}
+
 
 terraform {
   required_version = ">=1.0.1"
@@ -18,15 +28,3 @@ terraform {
     }
   }
 }
-
-provider "aws" {
-  #   shared_credentials_file = "$HOME/.aws/credentials"
-  # version = "5.10.0"
-  # access_key = "{{ secrets.AWS_ACCESS_KEY_ID }}"
-  # secret_key = "{{ secrets.AWS_SECRET_ACCESS_KEY }}"
-  # profile    = "default"
-  # access_key = ""
-  # secret_key = ""
-  region     = var.aws_region
-}
-
